@@ -1,5 +1,4 @@
 import * as React from "react";
-// import { hot } from "react-hot-loader";
 import "../styles/app.css";
 
 class App extends React.Component {
