@@ -16,6 +16,7 @@ module.exports = {
     ]
   },
   output: {
+    publicPath: "/", // base path for all assets
     path: path.join(__dirname, "/dist"),
     filename: "bundle.js"
   },
@@ -37,6 +38,7 @@ module.exports = {
     ]
   },
   devServer: {
+    historyApiFallback: true, // redirect 404s to index.html
     contentBase: path.join(__dirname, "public/"),
     port: 3000,
     open: true
