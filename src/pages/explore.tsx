@@ -1,5 +1,5 @@
 import * as React from "react";
-import { App } from "../components/app";
+import { App } from "../components";
 import Button from "@material-ui/core/Button";
 
 class ExplorePage extends React.Component {

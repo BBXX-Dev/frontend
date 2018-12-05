@@ -5,7 +5,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.tsx",
   resolve: {
-    extensions: [".ts", ".tsx", ".js"]
+    extensions: [
+      ".ts",
+      ".tsx",
+      ".webpack.js",
+      ".web.js",
+      ".mjs",
+      ".js",
+      ".json"
+    ]
   },
   output: {
     path: path.join(__dirname, "/dist"),
@@ -20,6 +28,11 @@ module.exports = {
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto"
       }
     ]
   },

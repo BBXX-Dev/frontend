@@ -1,6 +1,6 @@
 import * as React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { HomePage, LoginPage, ExplorePage, ProfilePage } from "./pages";
+import { HomePage, LoginPage, ExplorePage, ProfilePage } from "../pages";
 
 class App extends React.Component {
   render() {

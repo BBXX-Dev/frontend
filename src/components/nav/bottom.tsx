@@ -17,7 +17,7 @@ interface IProps {
   classes: any;
 }
 
-class LabelBottomNavigation extends React.Component<{}, {}> {
+class LabelBottomNavigation extends React.Component<IProps, {}> {
   state = {
     value: "recents"
   };
