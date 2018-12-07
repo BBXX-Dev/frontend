@@ -17,6 +17,14 @@ const {
   any
 >) as ThemedStyledComponentsModule<ThemeInterface>;
 
+export interface IThemeInterface {
+  primaryColor: string;
+}
+
+export const theme = {
+  primaryColor: "#e9e9eb"
+};
+
 const GlobalStyles = createGlobalStyle<{
   whiteText: boolean;
   blackBackground: boolean;
