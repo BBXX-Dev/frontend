@@ -18,22 +18,24 @@ const {
 >) as ThemedStyledComponentsModule<ThemeInterface>;
 
 export interface IThemeInterface {
-  primaryColor: string;
+  primaryColor?: string;
+  fontFamily?: string;
+  fontSize?: string;
+  lineHeight?: string;
 }
 
 export const theme = {
-  primaryColor: "#e9e9eb"
+  primaryColor: "#e9e9eb",
+  fontFamily: "Helvetica Neue",
+  fontSize: "16px",
+  lineHeight: "16px"
 };
 
-const GlobalStyles = createGlobalStyle<{
-  whiteText: boolean;
-  blackBackground: boolean;
-}>`
+const GlobalStyle = createGlobalStyle<{ theme: IThemeInterface }>`
   body {
-    color: ${props => (props.whiteText ? "white" : "black")};
-    background-color: ${props => (props.blackBackground ? "black" : "white")};
+    font-family: ${props => props.theme.fontFamily}
   }
 `;
 
-export { css, createGlobalStyle, GlobalStyles, keyframes, ThemeProvider };
+export { css, createGlobalStyle, GlobalStyle, keyframes, ThemeProvider };
 export default styled;

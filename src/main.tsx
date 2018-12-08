@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import { App } from "./components";
 import { client } from "./lib";
-import { theme, createGlobalStyle } from "./theme";
+import { theme, createGlobalStyle, GlobalStyle } from "./theme";
 
 createGlobalStyle`
     * { margin: 0; padding: 0; }
@@ -15,7 +15,10 @@ class Main extends React.Component {
     return (
       <ApolloProvider client={client}>
         <ThemeProvider theme={theme}>
-          <App />
+          <React.Fragment>
+            <GlobalStyle />
+            <App />
+          </React.Fragment>
         </ThemeProvider>
       </ApolloProvider>
     );
