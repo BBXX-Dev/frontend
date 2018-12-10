@@ -5,10 +5,11 @@ interface InputProps {
   marginBottom?: string;
   backgroundColor?: string;
   color?: string;
+  class?: string;
 }
 
 const InputStyled = styled.input<InputProps>`
-  padding-left: 10px;
+  padding: 6px 20px;
   border-radius: 25px;
   margin-bottom: ${props => props.marginBottom};
   background-color: ${props =>
@@ -19,7 +20,19 @@ const InputStyled = styled.input<InputProps>`
     outline: none;
   }
   font-family: ${props => props.theme.fontFamily};
-  color: ${props => (props.color ? props.color : "000000")};
+  color: ${props => (props.color ? props.color : "#000000")};
+`;
+
+const ButtonStyled = styled.button<InputProps>`
+  padding: 6px 20px;
+  border-radius: 25px;
+  margin-bottom: ${props => props.marginBottom};
+  background-color: ${props =>
+    props.backgroundColor ? props.backgroundColor : "#EBEBEB"};
+  border: 0px;
+  margin: 8px 0;
+  font-family: ${props => props.theme.fontFamily};
+  color: ${props => (props.color ? props.color : "#000000")};
 `;
 
 const LabelStyled = styled.label`
@@ -27,28 +40,45 @@ const LabelStyled = styled.label`
   margin-bottom: 20px;
 `;
 
-const DivStyled = styled.div`
+interface IDiv {
+  marginTop?: string;
+}
+
+const DivStyled = styled.div<IDiv>`
   display: flex;
   flex-direction: column;
+  margin-top: ${props => props.marginTop};
 `;
 
 export const StyledInput = props => {
   return (
-    <DivStyled className="form-group">
+    <DivStyled>
       {props.label ? (
         <LabelStyled htmlFor={props.name} className="form-label">
           {props.title}
         </LabelStyled>
       ) : null}
-      <InputStyled
-        className="form-control"
-        placeholder={props.placeholder}
-        marginBottom={props.marginBottom}
-        backgroundColor={props.backgroundColor}
-        color={props.color}
-        type={props.inputType}
-        value={props.value}
-      />
+      {props.inputType !== "submit" ? (
+        <InputStyled
+          placeholder={props.placeholder}
+          marginBottom={props.marginBottom}
+          backgroundColor={props.backgroundColor}
+          color={props.color}
+          type={props.inputType}
+          value={props.value}
+        />
+      ) : (
+        <DivStyled marginTop={"10%"}>
+          <ButtonStyled
+            type={props.inputType}
+            value={props.value}
+            backgroundColor={props.backgroundColor}
+            color={props.color}
+          >
+            {props.value}{" "}
+          </ButtonStyled>
+        </DivStyled>
+      )}
     </DivStyled>
   );
 };

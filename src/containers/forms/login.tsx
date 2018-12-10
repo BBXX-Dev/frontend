@@ -31,7 +31,7 @@ export class LoginForm extends React.Component<{}, IState> {
   };
 
   handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    console.log(event);
+    return event;
   };
 
   render() {
