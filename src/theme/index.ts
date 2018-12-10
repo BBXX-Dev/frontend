@@ -26,14 +26,15 @@ export interface IThemeInterface {
 
 export const theme = {
   primaryColor: "#e9e9eb",
-  fontFamily: "Helvetica Neue",
-  fontSize: "16px",
-  lineHeight: "16px"
+  fontFamily: "Helvetica"
+  // fontSize: "16px",
+  // lineHeight: "16px"
 };
 
 const GlobalStyle = createGlobalStyle<{ theme: IThemeInterface }>`
   body {
-    font-family: ${props => props.theme.fontFamily}
+    font-family: "Helvetica Neue"
+    text-align: center
   }
 `;
 

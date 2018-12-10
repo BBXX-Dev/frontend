@@ -4,11 +4,7 @@ import { ThemeProvider } from "styled-components";
 
 import { App } from "./components";
 import { client } from "./lib";
-import { theme, createGlobalStyle, GlobalStyle } from "./theme";
-
-createGlobalStyle`
-    * { margin: 0; padding: 0; }
-`;
+import { theme, GlobalStyle } from "./theme";
 
 class Main extends React.Component {
   render() {

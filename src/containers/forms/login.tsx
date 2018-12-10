@@ -1,6 +1,8 @@
 import * as React from "react";
-import { InputGeneric } from "../../components/forms";
-import { DivFlex } from "../../components/grids";
+import styled from "styled-components";
+
+import { StyledForm, StyledInput } from "../../components/forms";
+import { FlexDiv } from "../../components/containers";
 
 interface IState {
   username: string;
@@ -12,8 +14,8 @@ export class LoginForm extends React.Component<{}, IState> {
     super(props);
 
     this.state = {
-      username: undefined,
-      password: undefined
+      username: "",
+      password: ""
     };
   }
 
@@ -28,23 +30,39 @@ export class LoginForm extends React.Component<{}, IState> {
     this.setState(newState as { [P in T]: IState[P] });
   };
 
+  handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log(event);
+  };
+
   render() {
-    console.log(this.state);
     return (
-      <DivFlex className="loginRoot">
-        <InputGeneric
-          label="Username"
-          variant="filled"
-          name="username"
-          onChange={this.handleChange}
-        />
-        <InputGeneric
-          label="Password"
-          variant="filled"
-          name="password"
-          onChange={this.handleChange}
-        />
-      </DivFlex>
+      <FlexDiv>
+        <form className="container-fluid" onSubmit={this.handleFormSubmit}>
+          <StyledInput
+            inputType={"text"}
+            title={"Username"}
+            name={"username"}
+            value={this.state.username}
+            handleChange={this.handleChange}
+            placeholder={"Username"}
+            marginBottom="15px"
+          />
+          <StyledInput
+            inputType={"password"}
+            title={"Password"}
+            name={"password"}
+            value={this.state.password}
+            handleChange={this.handleChange}
+            placeholder={"Password"}
+          />
+          <StyledInput
+            inputType={"submit"}
+            value="Log In"
+            backgroundColor={"#444444"}
+            color={"#FFFFFF"}
+          />
+        </form>
+      </FlexDiv>
     );
   }
 }
