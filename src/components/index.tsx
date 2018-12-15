@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div>
+        {/* <div>
           <h2>Hello World!</h2>
           <ul>
             <li>
@@ -22,14 +22,14 @@ class App extends React.Component {
               <Link to={"/profile"}>Profile</Link>
             </li>
           </ul>
-          <hr />
-          <Switch>
-            <Route exact path="/" component={LoginPage} />
-            <Route path="/home" component={HomePage} />
-            <Route path="/explore" component={ExplorePage} />
-            <Route path="/profile" component={ProfilePage} />
-          </Switch>
-        </div>
+          <hr /> */}
+        <Switch>
+          <Route exact path="/" component={LoginPage} />
+          <Route path="/home" component={HomePage} />
+          <Route path="/explore" component={ExplorePage} />
+          <Route path="/profile" component={ProfilePage} />
+        </Switch>
+        {/* </div> */}
       </Router>
     );
   }

@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+import { Button } from "@material-ui/core";
 
 interface InputProps {
   marginBottom?: string;
@@ -66,6 +67,8 @@ export const StyledInput = props => {
           color={props.color}
           type={props.inputType}
           value={props.value}
+          onChange={props.onChange}
+          name={props.name}
         />
       ) : (
         <DivStyled marginTop={"10%"}>
@@ -79,6 +82,15 @@ export const StyledInput = props => {
           </ButtonStyled>
         </DivStyled>
       )}
+      {props.name === "password" ? (
+        <Button
+          disabled
+          className={"ForgotPassword"}
+          style={{ marginLeft: "75%", fontSize: "0.5em" }}
+        >
+          Forgot Password
+        </Button>
+      ) : null}
     </DivStyled>
   );
 };

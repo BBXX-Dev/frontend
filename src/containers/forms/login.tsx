@@ -1,8 +1,10 @@
 import * as React from "react";
-import styled from "styled-components";
+import Card from "@material-ui/core/Card";
+import CardMedia from "@material-ui/core/CardMedia";
+// const Icon = require("./icon-512x512.png");
 
-import { StyledForm, StyledInput } from "../../components/forms";
-import { FlexDiv } from "../../components/containers";
+import { StyledInput } from "../../components/forms";
+import { CenterDiv } from "../../components/containers";
 
 interface IState {
   username: string;
@@ -31,19 +33,23 @@ export class LoginForm extends React.Component<{}, IState> {
   };
 
   handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    console.log(this.state);
     return event;
   };
 
   render() {
     return (
-      <FlexDiv>
+      <CenterDiv>
+        <Card>
+          <CardMedia style={{ height: 140 }} image="" title="BBXX Logo" />
+        </Card>
         <form className="container-fluid" onSubmit={this.handleFormSubmit}>
           <StyledInput
             inputType={"text"}
             title={"Username"}
             name={"username"}
             value={this.state.username}
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             placeholder={"Username"}
             marginBottom="15px"
           />
@@ -52,7 +58,7 @@ export class LoginForm extends React.Component<{}, IState> {
             title={"Password"}
             name={"password"}
             value={this.state.password}
-            handleChange={this.handleChange}
+            onChange={this.handleChange}
             placeholder={"Password"}
           />
           <StyledInput
@@ -62,7 +68,7 @@ export class LoginForm extends React.Component<{}, IState> {
             color={"#FFFFFF"}
           />
         </form>
-      </FlexDiv>
+      </CenterDiv>
     );
   }
 }

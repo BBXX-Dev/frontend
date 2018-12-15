@@ -35,6 +35,13 @@ const GlobalStyle = createGlobalStyle<{ theme: IThemeInterface }>`
   body {
     font-family: "Helvetica Neue"
     text-align: center
+
+    // Disable text copying
+    -webkit-user-select: none;
+    // Disable highlight
+    -webkit-tap-highlight-color: transparent;
+    // Disable callouts
+    -webkit-touch-callout: none;
   }
 `;
 

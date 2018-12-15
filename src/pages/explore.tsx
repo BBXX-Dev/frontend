@@ -1,8 +1,26 @@
 import * as React from "react";
+import { PageLoader } from "../components/loader";
 
-class ExplorePage extends React.Component {
+interface IState {
+  loading: boolean;
+}
+
+class ExplorePage extends React.Component<{}, IState> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      loading: false
+    });
+  }
+
   render() {
-    return "Hello Explore Page!";
+    return this.state.loading ? <PageLoader /> : "Hello Explore Page!";
   }
 }
 
