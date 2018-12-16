@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Input, Label, Menu, Icon, List } from "semantic-ui-react";
+import { Menu, Icon, List } from "semantic-ui-react";
 
 interface IState {
     activeItem: string;

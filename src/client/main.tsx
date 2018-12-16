@@ -5,10 +5,13 @@ import { ThemeProvider } from "styled-components";
 import { App } from "./components";
 import { client } from "./lib";
 import { theme, GlobalStyle } from "./theme";
-import { Router } from "react-router-dom";
 import { Menu, Icon } from "semantic-ui-react";
 
 class Main extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <ApolloProvider client={client}>
@@ -29,16 +32,22 @@ class Main extends React.Component {
                                     }}
                                 >
                                     <Menu.Item to="/home/">
-                                        <Icon name="home" />
-                                        Home
+                                        <a href="/home">
+                                            <Icon name="home" />
+                                            Home
+                                        </a>
                                     </Menu.Item>
                                     <Menu.Item to="/explore/">
-                                        <Icon name="wpexplorer" />
-                                        Explore
+                                        <a href="/explore">
+                                            <Icon name="wpexplorer" />
+                                            Explore
+                                        </a>
                                     </Menu.Item>
                                     <Menu.Item to="/profile/">
-                                        <Icon name="user" />
-                                        Profile
+                                        <a href="/profile">
+                                            <Icon name="user" />
+                                            Profile
+                                        </a>
                                     </Menu.Item>
                                 </Menu>
                             </div>
