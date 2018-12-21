@@ -1,35 +1,36 @@
 import * as React from "react";
+import { withRouter } from "react-router-dom";
+import { BottomNav, HomepageLayout } from "../components";
 import { PageLoader } from "../components/loader";
-import { ProfileMenu } from "../components/layouts/profile-menu";
 
 interface IState {
     loading: boolean;
 }
 
-class ProfilePage extends React.Component<{}, IState> {
+class Home extends React.Component<{}, IState> {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true,
+            loading: true
         };
     }
 
-    componentDidMount() {
+    public componentDidMount() {
         this.setState({
-            loading: false,
+            loading: false
         });
     }
 
-    render() {
+    public render() {
         return this.state.loading ? (
             <PageLoader />
         ) : (
             <div>
-                <h2 style={{ borderBottom: "1px solid #4a4a4a" }}>My Profile</h2>
-                <ProfileMenu />
+                <HomepageLayout />
+                <BottomNav />
             </div>
         );
     }
 }
 
-export { ProfilePage };
+export const HomePage = withRouter(Home);

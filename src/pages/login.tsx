@@ -2,12 +2,14 @@ import * as React from "react";
 
 import { LoginForm } from "../containers/forms";
 import { PageLoader } from "../components/loader";
+import { withRouter, RouteComponentProps } from "react-router-dom";
+import { BottomNav } from "../components";
 
 interface IState {
   loading: boolean;
 }
 
-class LoginPage extends React.Component<{}, IState> {
+class Login extends React.Component<RouteComponentProps, IState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,8 +24,15 @@ class LoginPage extends React.Component<{}, IState> {
   }
 
   render() {
-    return this.state.loading ? <PageLoader /> : <LoginForm />;
+    return this.state.loading ? (
+      <PageLoader />
+    ) : (
+      <div>
+        <LoginForm />
+        {BottomNav}
+      </div>
+    );
   }
 }
 
-export { LoginPage };
+export const LoginPage = withRouter(Login);
